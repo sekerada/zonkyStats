@@ -8,20 +8,38 @@
 
 /* Begin PBXBuildFile section */
 		34C1A038215406A1002BD039 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C1A037215406A1002BD039 /* AppDelegate.swift */; };
-		34C1A03A215406A1002BD039 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C1A039215406A1002BD039 /* ViewController.swift */; };
-		34C1A03D215406A1002BD039 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34C1A03B215406A1002BD039 /* Main.storyboard */; };
 		34C1A03F215406A3002BD039 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34C1A03E215406A3002BD039 /* Assets.xcassets */; };
 		34C1A042215406A3002BD039 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34C1A040215406A3002BD039 /* LaunchScreen.storyboard */; };
+		34C1A04F2154085B002BD039 /* MainFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C1A04E2154085B002BD039 /* MainFlowController.swift */; };
+		34C1A053215408C3002BD039 /* StatsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C1A052215408C3002BD039 /* StatsDetailViewController.swift */; };
+		34C1A055215409B7002BD039 /* StatsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C1A054215409B7002BD039 /* StatsListViewModel.swift */; };
+		34C1A057215409C8002BD039 /* StatsDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C1A056215409C8002BD039 /* StatsDetailViewModel.swift */; };
+		34C1A0592154146A002BD039 /* StatsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C1A0582154146A002BD039 /* StatsListViewController.swift */; };
+		34C1A05C21541D97002BD039 /* Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C1A05B21541D97002BD039 /* Statistics.swift */; };
+		34C1A05E215428EA002BD039 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C1A05D215428EA002BD039 /* Network.swift */; };
+		34C1A061215429BD002BD039 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C1A060215429BD002BD039 /* APIService.swift */; };
+		34C1A06321542F50002BD039 /* ZonkyAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C1A06221542F50002BD039 /* ZonkyAPIService.swift */; };
+		C756CBE270EEAA197F4257B7 /* Pods_ZonkyStats.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAD636924F7854F3F6EBB26B /* Pods_ZonkyStats.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B27A54B9CAAE1275A941D26 /* Pods-ZonkyStats.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZonkyStats.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZonkyStats/Pods-ZonkyStats.release.xcconfig"; sourceTree = "<group>"; };
+		21044583CA920EB1F286C47F /* Pods-ZonkyStats.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZonkyStats.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZonkyStats/Pods-ZonkyStats.debug.xcconfig"; sourceTree = "<group>"; };
 		34C1A034215406A1002BD039 /* ZonkyStats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZonkyStats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34C1A037215406A1002BD039 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		34C1A039215406A1002BD039 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		34C1A03C215406A1002BD039 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		34C1A03E215406A3002BD039 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		34C1A041215406A3002BD039 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		34C1A043215406A3002BD039 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		34C1A04E2154085B002BD039 /* MainFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFlowController.swift; sourceTree = "<group>"; };
+		34C1A052215408C3002BD039 /* StatsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsDetailViewController.swift; sourceTree = "<group>"; };
+		34C1A054215409B7002BD039 /* StatsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsListViewModel.swift; sourceTree = "<group>"; };
+		34C1A056215409C8002BD039 /* StatsDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsDetailViewModel.swift; sourceTree = "<group>"; };
+		34C1A0582154146A002BD039 /* StatsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsListViewController.swift; sourceTree = "<group>"; };
+		34C1A05B21541D97002BD039 /* Statistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statistics.swift; sourceTree = "<group>"; };
+		34C1A05D215428EA002BD039 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		34C1A060215429BD002BD039 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		34C1A06221542F50002BD039 /* ZonkyAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZonkyAPIService.swift; sourceTree = "<group>"; };
+		CAD636924F7854F3F6EBB26B /* Pods_ZonkyStats.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZonkyStats.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C756CBE270EEAA197F4257B7 /* Pods_ZonkyStats.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +59,8 @@
 			children = (
 				34C1A036215406A1002BD039 /* ZonkyStats */,
 				34C1A035215406A1002BD039 /* Products */,
+				88C4D72C5F6C3CD8D30E52A6 /* Pods */,
+				D5DA901453F6305CC2DC7A37 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +75,102 @@
 		34C1A036215406A1002BD039 /* ZonkyStats */ = {
 			isa = PBXGroup;
 			children = (
+				34C1A05A21541D7D002BD039 /* Model */,
+				34C1A04D21540822002BD039 /* Services */,
+				34C1A04C2154080B002BD039 /* ViewController */,
+				34C1A04B21540802002BD039 /* ViewModel */,
+				34C1A04A215407F8002BD039 /* View */,
+				34C1A049215407EF002BD039 /* FlowController */,
 				34C1A037215406A1002BD039 /* AppDelegate.swift */,
-				34C1A039215406A1002BD039 /* ViewController.swift */,
-				34C1A03B215406A1002BD039 /* Main.storyboard */,
 				34C1A03E215406A3002BD039 /* Assets.xcassets */,
 				34C1A040215406A3002BD039 /* LaunchScreen.storyboard */,
 				34C1A043215406A3002BD039 /* Info.plist */,
 			);
 			path = ZonkyStats;
+			sourceTree = "<group>";
+		};
+		34C1A049215407EF002BD039 /* FlowController */ = {
+			isa = PBXGroup;
+			children = (
+				34C1A04E2154085B002BD039 /* MainFlowController.swift */,
+			);
+			path = FlowController;
+			sourceTree = "<group>";
+		};
+		34C1A04A215407F8002BD039 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		34C1A04B21540802002BD039 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				34C1A054215409B7002BD039 /* StatsListViewModel.swift */,
+				34C1A056215409C8002BD039 /* StatsDetailViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		34C1A04C2154080B002BD039 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				34C1A052215408C3002BD039 /* StatsDetailViewController.swift */,
+				34C1A0582154146A002BD039 /* StatsListViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		34C1A04D21540822002BD039 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				34C1A05F2154299D002BD039 /* API */,
+				34C1A05D215428EA002BD039 /* Network.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		34C1A05A21541D7D002BD039 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				34C1A05B21541D97002BD039 /* Statistics.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		34C1A05F2154299D002BD039 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				34C1A06421542F57002BD039 /* Base */,
+				34C1A06221542F50002BD039 /* ZonkyAPIService.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		34C1A06421542F57002BD039 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				34C1A060215429BD002BD039 /* APIService.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		88C4D72C5F6C3CD8D30E52A6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				21044583CA920EB1F286C47F /* Pods-ZonkyStats.debug.xcconfig */,
+				1B27A54B9CAAE1275A941D26 /* Pods-ZonkyStats.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		D5DA901453F6305CC2DC7A37 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CAD636924F7854F3F6EBB26B /* Pods_ZonkyStats.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +180,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 34C1A046215406A3002BD039 /* Build configuration list for PBXNativeTarget "ZonkyStats" */;
 			buildPhases = (
+				979E475626AFAE76F77D1681 /* [CP] Check Pods Manifest.lock */,
 				34C1A030215406A1002BD039 /* Sources */,
 				34C1A031215406A1002BD039 /* Frameworks */,
 				34C1A032215406A1002BD039 /* Resources */,
+				5CD0AB35B8C570BAF15AD012 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -124,33 +235,85 @@
 			files = (
 				34C1A042215406A3002BD039 /* LaunchScreen.storyboard in Resources */,
 				34C1A03F215406A3002BD039 /* Assets.xcassets in Resources */,
-				34C1A03D215406A1002BD039 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5CD0AB35B8C570BAF15AD012 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ZonkyStats/Pods-ZonkyStats-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
+				"${BUILT_PRODUCTS_DIR}/PKHUD/PKHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/Reqres/Reqres.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PKHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reqres.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ZonkyStats/Pods-ZonkyStats-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		979E475626AFAE76F77D1681 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ZonkyStats-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		34C1A030215406A1002BD039 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34C1A03A215406A1002BD039 /* ViewController.swift in Sources */,
+				34C1A06321542F50002BD039 /* ZonkyAPIService.swift in Sources */,
+				34C1A05C21541D97002BD039 /* Statistics.swift in Sources */,
+				34C1A04F2154085B002BD039 /* MainFlowController.swift in Sources */,
+				34C1A05E215428EA002BD039 /* Network.swift in Sources */,
+				34C1A057215409C8002BD039 /* StatsDetailViewModel.swift in Sources */,
+				34C1A053215408C3002BD039 /* StatsDetailViewController.swift in Sources */,
 				34C1A038215406A1002BD039 /* AppDelegate.swift in Sources */,
+				34C1A055215409B7002BD039 /* StatsListViewModel.swift in Sources */,
+				34C1A061215429BD002BD039 /* APIService.swift in Sources */,
+				34C1A0592154146A002BD039 /* StatsListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		34C1A03B215406A1002BD039 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				34C1A03C215406A1002BD039 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		34C1A040215406A3002BD039 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -278,6 +441,7 @@
 		};
 		34C1A047215406A3002BD039 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 21044583CA920EB1F286C47F /* Pods-ZonkyStats.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -296,6 +460,7 @@
 		};
 		34C1A048215406A3002BD039 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1B27A54B9CAAE1275A941D26 /* Pods-ZonkyStats.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
