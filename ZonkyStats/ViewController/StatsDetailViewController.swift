@@ -77,7 +77,7 @@ class StatsDetailViewController: UIViewController {
         chartView.snp.makeConstraints { (make) in
             make.height.equalTo(view.snp.height).multipliedBy(0.5)
         }
-        navigationItem.title = viewModel.statistics.
+        navigationItem.title = viewModel.statistics.name
     }
     
     override func viewDidLoad() {
@@ -156,7 +156,7 @@ extension StatsDetailViewController {
                 }
             case .phone:
                 switch UIDevice.current.orientation {
-                    case .portrait: chartView.setVisibleXRangeMaximum(10)
+                    case .portrait: chartView.setVisibleXRangeMaximum(9)
                     case .landscapeLeft, .landscapeRight: chartView.setVisibleXRangeMaximum(20)
                     default: break
                 }
