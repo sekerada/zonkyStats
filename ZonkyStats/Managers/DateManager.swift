@@ -46,10 +46,15 @@ class DateManager {
     func getTimeFrames(from timeRange: TimeRange = DateManager.current.defaultTimeRange) -> [Date] {
         var timeFrames = [Date]()
         var time = timeRange.startTime
+        
         while time <= timeRange.endTime {
             timeFrames.append(time)
             let nextMonths = firstDayInMonth(from: time, numberOfMonths: 1)
             time = nextMonths
+        }
+        //In case we're interested in actual month
+        if(timeFrames.count == 1) {
+            timeFrames.append(Date())
         }
         return timeFrames
     }
@@ -61,8 +66,8 @@ class DateManager {
         timeRangeOptions.append(TimeRange(title: "poslední 3 měsíce", startTime: firstDayInMonth(numberOfMonths: -3)))
         timeRangeOptions.append(TimeRange(title: "posledních 6 měsíců", startTime: firstDayInMonth(numberOfMonths: -6)))
         timeRangeOptions.append(TimeRange(title: "posledních 12 měsíců", startTime: firstDayInMonth(numberOfMonths: -12)))
-        timeRangeOptions.append(TimeRange(title: "rok 2016", startTime: dateFormatter.date(from: "2016-01-01")!, endTime: dateFormatter.date(from: "2016-12-31")!))
-        timeRangeOptions.append(TimeRange(title: "rok 2017", startTime: dateFormatter.date(from: "2017-01-01")!, endTime: dateFormatter.date(from: "2017-12-31")!))
+        timeRangeOptions.append(TimeRange(title: "rok 2016", startTime: dateFormatter.date(from: "2016-01-01")!, endTime: dateFormatter.date(from: "2017-01-01")!))
+        timeRangeOptions.append(TimeRange(title: "rok 2017", startTime: dateFormatter.date(from: "2017-01-01")!, endTime: dateFormatter.date(from: "2018-01-01")!))
         timeRangeOptions.append(TimeRange(title: "od počátku věků", startTime: dateFormatter.date(from: "2015-04-01")!))
         return timeRangeOptions
     }

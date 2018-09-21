@@ -48,7 +48,6 @@ class StatsListViewController: UITableViewController {
         setupBindings()
     }
 
-   
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -75,5 +74,4 @@ class StatsListViewController: UITableViewController {
             delegate.didTapSwitchToDetail(statistics: self.viewModel.statsList.value[indexPath.row], chartData: data)
         }
     }
-
 }

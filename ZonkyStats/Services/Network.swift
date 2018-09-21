@@ -48,5 +48,4 @@ class Network: Networking {
             return Disposables.create()
         })
     }
-    
 }

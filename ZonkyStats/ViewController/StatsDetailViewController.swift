@@ -68,8 +68,8 @@ class StatsDetailViewController: UIViewController {
         descriptionVStack.translatesAutoresizingMaskIntoConstraints = false
         rangeLabel.snp.makeConstraints { (make) in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.topMargin).offset(10)
-            make.left.equalTo(view.snp.left).offset(5)
-            make.right.equalTo(view.snp.right).offset(-5)
+            make.left.equalTo(view.snp.left).offset(10)
+            make.right.equalTo(view.snp.right).offset(-10)
         }
         changeRangeButton.snp.makeConstraints { (make) in
             make.height.equalTo(40)
@@ -77,7 +77,7 @@ class StatsDetailViewController: UIViewController {
         chartView.snp.makeConstraints { (make) in
             make.height.equalTo(view.snp.height).multipliedBy(0.5)
         }
-        navigationItem.title = viewModel.statistics.name
+        navigationItem.title = viewModel.statistics.
     }
     
     override func viewDidLoad() {
@@ -128,7 +128,6 @@ extension StatsDetailViewController {
                 let barEntry = BarChartDataEntry(x: Double(index), y: Double(viewModel.chartData.value[index].1))
                 barEntries.append(barEntry)
             }
-            
             let dataSet = BarChartDataSet(values: barEntries, label: "\(viewModel.statistics.legendDescription)\(viewModel.chartDataAggregateValue())")
             let chartLegend = chartView.legend
             chartLegend.textWidthMax = 100
@@ -136,9 +135,7 @@ extension StatsDetailViewController {
             chartLegend.horizontalAlignment = .left
             chartLegend.verticalAlignment = .top
             chartView.chartDescription?.text = ""
-            
             dataSet.setColor(NSUIColor.blue)
-            
             let formatter = MyAxisFormatter(values: DateManager.current.graphFormattedDates(from: viewModel.chartData.value.map{ $0.0 }))
             print("AxisFormatter.values.count = \(formatter.values.count)")
             let xaxis:XAxis = self.chartView.xAxis
@@ -147,12 +144,8 @@ extension StatsDetailViewController {
             xaxis.valueFormatter = formatter
             xaxis.granularityEnabled = true
             xaxis.granularity = 1
-            //xaxis.labelHeight = 1.2
-            //xaxis.labelWidth = 0.8
-            
             self.chartView.data = BarChartData(dataSet: dataSet)
-            
-            self.chartView.fitBars = false
+            self.chartView.fitBars = true
             
             switch UIDevice.current.userInterfaceIdiom {
             case .pad:
@@ -167,6 +160,7 @@ extension StatsDetailViewController {
                     case .landscapeLeft, .landscapeRight: chartView.setVisibleXRangeMaximum(20)
                     default: break
                 }
+                
             default: break
             }
             
@@ -174,6 +168,33 @@ extension StatsDetailViewController {
             chartView.scaleYEnabled = false
             chartView.notifyDataSetChanged()
             chartView.animate(xAxisDuration: 1.5, yAxisDuration: 1.5, easingOption: ChartEasingOption.linear)
+        }
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        //iPhoneX layout improvements
+        if UIDevice().userInterfaceIdiom == .phone && UIScreen.main.nativeBounds.height == 2436 {
+            switch UIDevice.current.orientation {
+            case .portrait:
+                rangeLabel.snp.remakeConstraints { (make) in
+                    make.top.equalTo(view.safeAreaLayoutGuide.snp.topMargin).offset(10)
+                    make.left.equalTo(view.snp.left).offset(10)
+                    make.right.equalTo(view.snp.right).offset(-10)
+                }
+            case .landscapeLeft:
+                rangeLabel.snp.remakeConstraints { (make) in
+                    make.top.equalTo(view.safeAreaLayoutGuide.snp.topMargin).offset(10)
+                    make.left.equalTo(view.snp.left).offset(40)
+                    make.right.equalTo(view.snp.right).offset(-10)
+                }
+            case .landscapeRight:
+                rangeLabel.snp.remakeConstraints { (make) in
+                    make.top.equalTo(view.safeAreaLayoutGuide.snp.topMargin).offset(10)
+                    make.left.equalTo(view.snp.left).offset(10)
+                    make.right.equalTo(view.snp.right).offset(-40)
+                }
+            default : break
+            }
         }
     }
 }

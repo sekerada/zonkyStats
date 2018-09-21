@@ -18,8 +18,8 @@ enum RequestError: Error {
 
 /// Base class which all API Services should inherit
 class APIService {
-    // MARK: Dependencies
     
+    // MARK: Dependencies
     let network: Networking
     
     init(network: Networking) {
