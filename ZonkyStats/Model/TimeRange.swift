@@ -9,11 +9,14 @@
 import Foundation
 
 class TimeRange {
+    
     let title: String
     let startTime: Date
+    let endTime: Date
     
-    init(title:  String, startTime: Date) {
+    init(title:  String, startTime: Date, endTime: Date = Date()) {
         self.title = title
         self.startTime = startTime
+        self.endTime = endTime
     }
 }

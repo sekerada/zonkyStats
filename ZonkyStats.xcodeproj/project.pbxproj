@@ -20,6 +20,7 @@
 		34C1A061215429BD002BD039 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C1A060215429BD002BD039 /* APIService.swift */; };
 		34C1A06321542F50002BD039 /* ZonkyAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C1A06221542F50002BD039 /* ZonkyAPIService.swift */; };
 		34C1A06A21545F64002BD039 /* TimeRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C1A06921545F64002BD039 /* TimeRange.swift */; };
+		34C1A06F215490AE002BD039 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C1A06E215490AE002BD039 /* DateManager.swift */; };
 		C756CBE270EEAA197F4257B7 /* Pods_ZonkyStats.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAD636924F7854F3F6EBB26B /* Pods_ZonkyStats.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		34C1A060215429BD002BD039 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		34C1A06221542F50002BD039 /* ZonkyAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZonkyAPIService.swift; sourceTree = "<group>"; };
 		34C1A06921545F64002BD039 /* TimeRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeRange.swift; sourceTree = "<group>"; };
+		34C1A06E215490AE002BD039 /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 		CAD636924F7854F3F6EBB26B /* Pods_ZonkyStats.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZonkyStats.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -77,6 +79,7 @@
 		34C1A036215406A1002BD039 /* ZonkyStats */ = {
 			isa = PBXGroup;
 			children = (
+				34C1A06D21548F2C002BD039 /* Managers */,
 				34C1A05A21541D7D002BD039 /* Model */,
 				34C1A04D21540822002BD039 /* Services */,
 				34C1A04C2154080B002BD039 /* ViewController */,
@@ -149,6 +152,14 @@
 				34C1A060215429BD002BD039 /* APIService.swift */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		34C1A06D21548F2C002BD039 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				34C1A06E215490AE002BD039 /* DateManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		88C4D72C5F6C3CD8D30E52A6 /* Pods */ = {
@@ -294,6 +305,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				34C1A06321542F50002BD039 /* ZonkyAPIService.swift in Sources */,
+				34C1A06F215490AE002BD039 /* DateManager.swift in Sources */,
 				34C1A06A21545F64002BD039 /* TimeRange.swift in Sources */,
 				34C1A05C21541D97002BD039 /* Statistics.swift in Sources */,
 				34C1A04F2154085B002BD039 /* MainFlowController.swift in Sources */,

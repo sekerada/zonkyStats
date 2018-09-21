@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import PKHUD
 
 protocol DetailFlowProtocol {
-    func didTapSwitchToDetail(statistics: Statistics)
+    func didTapSwitchToDetail(statistics: Statistics, chartData: [(Date, Int)])
 }
 
 class StatsListViewController: UITableViewController {
@@ -30,6 +31,13 @@ class StatsListViewController: UITableViewController {
         _ = viewModel.statsList.asObservable().subscribe(onNext: { [unowned self] data in
             self.tableView.reloadData()
         })
+        _ = viewModel.isRefreshing.asObservable().subscribe(onNext: { value in
+            if value {
+                HUD.show(HUDContentType.progress)
+            } else {
+                HUD.hide()
+            }
+        })
     }
     
     override func viewDidLoad() {
@@ -37,8 +45,10 @@ class StatsListViewController: UITableViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         tableView.tableFooterView = UIView()
         navigationItem.title = viewModel.navigationTitle
+        setupBindings()
     }
 
+   
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -60,7 +70,10 @@ class StatsListViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let delegate = detailFlowDelegate else { return }
-        delegate.didTapSwitchToDetail(statistics: viewModel.statsList.value[indexPath.row])
+        viewModel.loadStatsDetail(statistics: viewModel.statsList.value[indexPath.row]) { [unowned self] data in
+            guard let data = data else { HUD.flash(HUDContentType.error); return }
+            delegate.didTapSwitchToDetail(statistics: self.viewModel.statsList.value[indexPath.row], chartData: data)
+        }
     }
 
 }

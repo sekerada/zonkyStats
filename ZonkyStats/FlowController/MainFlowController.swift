@@ -27,10 +27,11 @@ class MainFlowViewController {
 }
 
 extension MainFlowViewController: DetailFlowProtocol {
-    func didTapSwitchToDetail(statistics: Statistics) {
+    func didTapSwitchToDetail(statistics: Statistics, chartData: [(Date, Int)]) {
         let apiService = ZonkyAPIService(network: Network())
-        let detailViewModel = StatsDetailViewModel(statistics: statistics, apiService: apiService)
+        let detailViewModel = StatsDetailViewModel(statistics: statistics, chartData: chartData, apiService: apiService)
         let statsDetailController = StatsDetailViewController(viewModel: detailViewModel)
+        self.navigationController.topViewController?.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         navigationController.pushViewController(statsDetailController, animated: true)
     }
 }

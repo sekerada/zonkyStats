@@ -33,9 +33,9 @@ class APIService {
     }
     
     // MARK: Requests API
-    func request(_ path: String, method: Alamofire.HTTPMethod = .get, parameters: [String: Any] = [:], encoding: ParameterEncoding = URLEncoding.default, headers: [String: String] = [:]) -> Observable<(Data?, NetworkError?)> {
+    func request(_ path: String, method: Alamofire.HTTPMethod = .get, parameters: [String: Any] = [:], encoding: ParameterEncoding = URLEncoding.default, headers: [String: String] = [:]) -> Observable<(Data?, HTTPURLResponse?, NetworkError?)> {
         let resourceURL = self.resourceURL(for: path)
-        
+        print("Resource url = \(resourceURL)")
         return network.request(resourceURL.absoluteString, method: method, parameters: parameters, encoding: encoding, headers: headers)
     }
 }

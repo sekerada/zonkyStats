@@ -10,8 +10,10 @@ import Foundation
 
 class Statistics {
     let name: String
+    let legendDescription: String
     
-    init(name: String) {
+    init(name: String, legend: String) {
         self.name = name
+        self.legendDescription = legend
     }
 }

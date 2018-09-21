@@ -11,12 +11,15 @@ import RxSwift
 
 protocol StatsDetailViewModelling {
     func refreshStatsData()
+    func chartDataAggregateValue() -> Int
     var statistics: Statistics { get }
     var navigationTitle: String { get }
     var timeRangeOptions: [TimeRange] { get }
     var selectedTimeRange: Variable<TimeRange> { get }
+    var lastLoadedTimeRange: TimeRange { get }
     var timeRangeTitle: Variable<String> { get }
     var isRefreshing: Variable<Bool> { get }
+    var chartData: Variable<[(Date,Int)]> { get }
 }
 
 class StatsDetailViewModel: StatsDetailViewModelling {
@@ -25,48 +28,41 @@ class StatsDetailViewModel: StatsDetailViewModelling {
     var navigationTitle: String
     let apiService: ZonkyAPIServicing
     var timeRangeOptions: [TimeRange]
-    let dateFormatter = DateFormatter()
-    let calendar = Calendar(identifier: .gregorian)
-    let date = Date()
-    lazy var selectedTimeRange: Variable<TimeRange> = {
-        return Variable<TimeRange>(TimeRange(title: "posledních 12 měsíců", startTime: self.firstDayInMonth(numberOfMonths: -12)!))
-    }()
+    var chartData: Variable<[(Date, Int)]>
+    var selectedTimeRange: Variable<TimeRange>
+    var lastLoadedTimeRange: TimeRange
     var timeRangeTitle: Variable<String> = Variable<String>("")
-
+    var isRefreshing: Variable<Bool> = Variable<Bool>(false)
     
-    init(statistics: Statistics, apiService: ZonkyAPIServicing) {
+    init(statistics: Statistics, chartData: [(Date,Int)], apiService: ZonkyAPIServicing) {
         self.statistics = statistics
         self.navigationTitle = statistics.name
         self.apiService = apiService
-        self.timeRangeOptions = [TimeRange]()
-        timeRangeTitle.value = "Pro statistiku níže jsou vybraná data za období: \(self.selectedTimeRange.value.startTime)."
+        self.timeRangeOptions = DateManager.current.loadTimeRangeOptions()
+        self.selectedTimeRange = Variable<TimeRange>(DateManager.current.defaultTimeRange)
+        self.chartData = Variable<[(Date,Int)]>(chartData)
+        self.lastLoadedTimeRange = DateManager.current.defaultTimeRange
     }
     
     func refreshStatsData() {
-        
+        if lastLoadedTimeRange.title == selectedTimeRange.value.title {
+            return
+        } else {
+            isRefreshing.value = true
+            apiService.loadStatsDetail(for: selectedTimeRange.value, statistics: statistics) { [unowned self] data in
+                self.isRefreshing.value = false;
+                guard let data = data else { self.selectedTimeRange.value = self.lastLoadedTimeRange; return }
+                
+                self.lastLoadedTimeRange = self.selectedTimeRange.value
+                self.chartData.value = data
+            }
+        }
     }
     
-    //Hard coded time ranges based on web version
-    func loadTimeRangeOptions() {
-        var timeRangeOptions = [TimeRange]()
-        timeRangeOptions.append(TimeRange(title: "tento měsíc", startTime: firstDayInMonth(numberOfMonths: 0) ?? date))
-        timeRangeOptions.append(TimeRange(title: "minulý měsíc", startTime: firstDayInMonth(numberOfMonths: -1) ?? date))
-        timeRangeOptions.append(TimeRange(title: "poslední 3 měsíce", startTime: firstDayInMonth(numberOfMonths: -3) ?? date))
-        timeRangeOptions.append(TimeRange(title: "posledních 6 měsíců", startTime: firstDayInMonth(numberOfMonths: -6) ?? date))
-        timeRangeOptions.append(TimeRange(title: "posledních 12 měsíců", startTime: firstDayInMonth(numberOfMonths: -12) ?? date))
-        timeRangeOptions.append(TimeRange(title: "rok 2016", startTime: dateFormatter.date(from: "2016-01-01")!))
-        timeRangeOptions.append(TimeRange(title: "rok 2017", startTime: dateFormatter.date(from: "2017-01-01")!))
-        timeRangeOptions.append(TimeRange(title: "od počátku věků", startTime: dateFormatter.date(from: "2015-04-01")!))
-    }
-    
-    
-
-    func firstDayInMonth(numberOfMonths: Int ) -> Date? {
-        //Use negative number to retrieve previous month or 0 to retrieve actual month
-        dateFormatter.dateFormat =  "yyyy-MM-dd"
-        let components = calendar.dateComponents([.year, .month, .day], from: Calendar.current.date(byAdding: .month, value: numberOfMonths, to: date)!)
-        guard let year = components.year, let month = components.month, let startDate = dateFormatter.date(from: "\(year)-\(month)-01") else { return nil }
-        return startDate
+    func chartDataAggregateValue() -> Int {
+        var aggregate = 0
+        chartData.value.forEach( { aggregate += $0.1})
+        return aggregate
     }
     
 }
