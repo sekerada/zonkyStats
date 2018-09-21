@@ -18,15 +18,18 @@ class MainFlowViewController {
     }
     
     func start() {
-        let statsListViewModel = StatsListViewModel()
+        let apiService = ZonkyAPIService(network: Network())
+        let statsListViewModel = StatsListViewModel(apiService: apiService)
         let statsListViewController = StatsListViewController(viewModel: statsListViewModel)
+        statsListViewController.detailFlowDelegate = self
         navigationController.viewControllers = [statsListViewController]
     }
 }
 
 extension MainFlowViewController: DetailFlowProtocol {
     func didTapSwitchToDetail(statistics: Statistics) {
-        let detailViewModel = StatsDetailViewModel()
+        let apiService = ZonkyAPIService(network: Network())
+        let detailViewModel = StatsDetailViewModel(statistics: statistics, apiService: apiService)
         let statsDetailController = StatsDetailViewController(viewModel: detailViewModel)
         navigationController.pushViewController(statsDetailController, animated: true)
     }
